@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h5 class="font-weight-bold"> <i class="fas fa-tachometer-alt"></i> DASHBOARD</h5>
                         <hr>
-                        Selamat Datang <strong>{{ user.id }}</strong>
+                        Selamat Datang <strong>{{ user.nik }}</strong>
                     </div>
                 </div>
                 <div class="card border-0 rounded shadow mt-3">

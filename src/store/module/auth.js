@@ -36,7 +36,7 @@ const auth = {
             //ambil data dari localstorage
             const token = localStorage.getItem('token')
 
-            Api.defaults.headers.common['Authorization'] = "bearer " + token
+            Api.defaults.headers.common['Authorization'] = "Bearer " + token
             Api.get('/user')
             .then(response => {
                 //commit ke mutation GET_USER dengan hasil response
