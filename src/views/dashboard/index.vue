@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h5 class="font-weight-bold"> <i class="fas fa-tachometer-alt"></i> DASHBOARD</h5>
                         <hr>
-                        Selamat Datang <strong>{{ user.id }}</strong>
+                        Selamat Datang <strong>{{ user.nik }}</strong>
                     </div>
                 </div>
                 <div class="card border-0 rounded shadow mt-3">
@@ -46,13 +46,13 @@
             //mounted 
             onMounted(() => {
                 //panggil action "getUser" dari module "auth"
-                store.dispatch('getUser')
+                store.dispatch('auth/getUser')
             })
 
             //computed
             const user = computed(() => {
                 //panggil getters dengan nama "currentUser"
-                return store.getters['currentUser']
+                return store.getters['auth/currentUser']
             })
 
             //return state dan function supaya bisa digunakan di template 

@@ -31,7 +31,7 @@
         //method untuk logout 
         function logout() {
             //panggil action logout dari modul auth
-            store.dispatch('logout')
+            store.dispatch('auth/logout')
                 .then(() => {
                     //klo berhasil diarahkan ke route login
                     router.push({
