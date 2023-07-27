@@ -46,13 +46,13 @@
             //mounted 
             onMounted(() => {
                 //panggil action "getUser" dari module "auth"
-                store.dispatch('getUser')
+                store.dispatch('auth/getUser')
             })
 
             //computed
             const user = computed(() => {
                 //panggil getters dengan nama "currentUser"
-                return store.getters['currentUser']
+                return store.getters['auth/currentUser']
             })
 
             //return state dan function supaya bisa digunakan di template 
