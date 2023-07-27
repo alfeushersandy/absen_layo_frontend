@@ -16,52 +16,54 @@
                     <div class="card-body">
                         <h5 class="font-weight-bold"> <i class="fas fa-tachometer-alt"></i> Daftar Request</h5>
                         <hr>
-                        <table class="table table-bordered table-responsive" style="width: 100%">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>NIK</th>
-                                    <th>Nama</th>
-                                    <th>Jenis Ijin</th>
-                                    <th>Tanggal Awal</th>
-                                    <th>Tanggal Akhir</th>
-                                    <th>Jumlah Hari</th>
-                                    <th>Status</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-if="loading">
-                                    <td colspan="8" class="text-center">
-                                        <div>
-                                            Loading . . . 
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr v-if="absens.length == 0">
-                                    <td colspan="8" class="text-center">
-                                        <div class="alert alert-danger mb-0">
-                                            Data Belum Tersedia!
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr v-else v-for="(absen, index) in absens" :key="index">
-                                    <td>{{ absen.karyawan.nik_karyawan }}</td>
-                                    <td>{{ absen.karyawan.nama }}</td>
-                                    <td>{{ absen.jenis_absen.nama_abs }}</td>
-                                    <td>{{ absen.tanggal_awal }}</td>
-                                    <td>{{ absen.tanggal_akhir }}</td>
-                                    <td class="text-center">{{ absen.jumlah_hari }}</td>
-                                    <td>{{ absen.status }}</td>
-                                    <td v-if="absen.status == 'Pending'">
-                                        <a href="" class="btn btn-info btn-sm">Approve</a>
-                                        <a href="" class="btn btn-danger btn-sm">Reject</a>
-                                    </td>
-                                    <td v-if="absen.status == 'Approved'">
-                                        <a href="" class="btn btn-info btn-sm">Verify</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive col-lg-12">
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>NIK</th>
+                                        <th>Nama</th>
+                                        <th>Jenis Ijin</th>
+                                        <th>Tanggal Awal</th>
+                                        <th>Tanggal Akhir</th>
+                                        <th>Jumlah Hari</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-if="loading">
+                                        <td colspan="8" class="text-center">
+                                            <div>
+                                                Loading . . . 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr v-if="absens.length == 0">
+                                        <td colspan="8" class="text-center">
+                                            <div class="alert alert-danger mb-0">
+                                                Data Belum Tersedia!
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr v-else v-for="(absen, index) in absens" :key="index">
+                                        <td>{{ absen.karyawan.nik_karyawan }}</td>
+                                        <td>{{ absen.karyawan.nama }}</td>
+                                        <td>{{ absen.jenis_absen.nama_abs }}</td>
+                                        <td>{{ absen.tanggal_awal }}</td>
+                                        <td>{{ absen.tanggal_akhir }}</td>
+                                        <td class="text-center">{{ absen.jumlah_hari }}</td>
+                                        <td>{{ absen.status }}</td>
+                                        <td v-if="absen.status == 'Pending'">
+                                            <a href="" class="btn btn-info btn-sm">Approve</a>
+                                            <a href="" class="btn btn-danger btn-sm">Reject</a>
+                                        </td>
+                                        <td v-if="absen.status == 'Approved'">
+                                            <a href="" class="btn btn-info btn-sm">Verify</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

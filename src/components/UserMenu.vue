@@ -4,7 +4,7 @@
           <h5 class="font-weight-bold text-center sm-text-left">USER MENU</h5>
           <hr>
           <ul class="list-group">
-              <Router-link :to="{name: 'dashboard'}" class="list-group-item text-decoration-none text-dark text-uppercase"><i class="fas fa-shopping-cart"></i> dashboard</Router-link>
+              <a href="#" class="list-group-item text-decoration-none text-dark text-uppercase"><i class="fas fa-shopping-cart"></i> Profile</a>
               <Router-link :to="{name:'izin'}" class="list-group-item text-decoration-none text-dark text-uppercase"><i class="fas fa-shopping-cart"></i> Permohonan Izin</Router-link>
               <a @click="logout" style="cursor:pointer" class="list-group-item text-decoration-none text-dark text-uppercase"><i class="fas fa-sign-out-alt"></i> Logout</a>
           </ul>
