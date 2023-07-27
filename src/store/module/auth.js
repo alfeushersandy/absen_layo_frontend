@@ -39,6 +39,7 @@ const auth = {
             Api.defaults.headers.common['Authorization'] = "Bearer " + token
             Api.get('/user')
             .then(response => {
+                console.log(response.data.user)
                 //commit ke mutation GET_USER dengan hasil response
                 commit('GET_USER', response.data.user)
             }) 
