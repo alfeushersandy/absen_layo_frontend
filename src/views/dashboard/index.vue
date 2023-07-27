@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h5 class="font-weight-bold"> <i class="fas fa-tachometer-alt"></i> DASHBOARD</h5>
                         <hr>
-                        Selamat Datang <strong>{{ user.karyawan.nama }}</strong>
+                        Selamat Datang <strong>{{ user.karyawan.nama }},</strong> <span class="text-danger">Aplikasi Ini sedang dalam masa Trial !!</span>
                     </div>
                 </div>
                 <div class="card border-0 rounded shadow mt-3">
@@ -30,6 +30,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr v-if="loading">
+                                    <td colspan="8" class="text-center">
+                                        <div>
+                                            Loading . . . 
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr v-if="absens.length == 0">
                                     <td colspan="8" class="text-center">
                                         <div class="alert alert-danger mb-0">
@@ -84,8 +91,11 @@
             const store = useStore()
             //inisiasi state daftar absen
             const absens = ref({});
+            //loading
+            const loading = ref();
             //mounted 
             onMounted(() => {
+                loading.value = true;
                 //panggil action "getUser" dari module "auth"
                 store.dispatch('auth/getUser')
                 //panggil fetchdataabsen
@@ -113,6 +123,7 @@
 
                 .then(response => {
                     absens.value = response.data.data.data;
+                    loading.value = false;
                     console.log(response.data.data);
                 })
             }
@@ -121,7 +132,8 @@
             return {
                 store,
                 user,
-                absens
+                absens, 
+                loading
             }
         }
 
